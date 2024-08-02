@@ -1,0 +1,9 @@
+.cardImgTop {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+}
+
+.aImg{
+    width: 50px;
+}
