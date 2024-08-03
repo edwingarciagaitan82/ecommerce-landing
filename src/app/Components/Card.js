@@ -1,5 +1,18 @@
 import styles from './Card.module.css'
+import { useDispatch } from 'react-redux'
+import { productAdd } from '../redux/cartSlice'
+import { useSelector } from "react-redux";
 function Card({ product }){
+    const dispatch = useDispatch()
+    // 
+    const datos = product
+    const addCart = () =>{ console.log(datos)
+      dispatch(productAdd( datos))
+    }
+
+    const {email} = useSelector(state=> state.user )
+    console.log("user", email)
+    // dispatch( addProducto  )
     return(<>
     <div className="col-4 pt-4">
       <div className="card h-100 shadow-sm">
@@ -18,7 +31,7 @@ function Card({ product }){
             <a target="_blank" href="#">{ product.title  }</a>
           </h5>
           <div className="d-grid gap-2 my-4">
-            <a href="#" className="btn btn-warning bold-btn">add to cart</a>
+            <a href="#" onClick = { addCart  } className="btn btn-warning bold-btn">add to cart</a>
           </div>
           <div className="clearfix mb-1">
             <span className="float-start"><a href="#"><i className="fas fa-question-circle"></i></a></span>

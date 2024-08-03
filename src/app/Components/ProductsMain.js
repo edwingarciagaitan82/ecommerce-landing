@@ -11,11 +11,7 @@ async function  ProductsMain(){
       }
       
     return(<>
-            
         <div className="row">
-        <button onClick={hdCanvas} className="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-  Button with data-bs-target
-</button>
             <ProductosHOC></ProductosHOC>
         </div>
     </>)

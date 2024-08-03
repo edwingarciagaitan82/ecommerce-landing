@@ -1,9 +1,23 @@
+"use client";
+
+import { useState } from "react";
 function ShoppingCart(){
+  const [ show , setShow] = useState(false)
+    const hdMostrar = () =>{
+      // if(show)
+      //   setShow(false)
+      // else
+      //   setShow(true)
+        console.log("!!!")
+    }
     return(<>
-    <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <button onClick={ hdMostrar } className="btn btn-primary" type="button">
+      Carrito
+    </button>
+    <div className={ (show) ? 'offcanvas offcanvas-start show':'offcanvas offcanvas-start' } tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div className="offcanvas-header">
     <h5 className="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-    <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <button onClick={ hdMostrar } type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div className="offcanvas-body">
     <div>

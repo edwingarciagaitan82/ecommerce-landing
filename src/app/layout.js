@@ -1,10 +1,13 @@
+// "use client";
 import 'bootstrap/dist/css/bootstrap.css';
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
-import ShoppingCart from './Components/ShoppingCart';
+// import ShoppingCart from './Components/ShoppingCart';
 const inter = Inter({ subsets: ["latin"] });
+
+import StoreProvider from './redux/StoreProvider';
 
 export const metadata = {
   title: "Create Next App",
@@ -15,10 +18,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        <StoreProvider>
         <Navbar></Navbar>
         {children}
-        <ShoppingCart></ShoppingCart>
+        {/* <ShoppingCart></ShoppingCart> */}
         <Footer></Footer>
+        </StoreProvider>
       </body>
     </html>
   );
