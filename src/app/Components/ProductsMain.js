@@ -2,7 +2,8 @@
 import { withProductsComponent } from "./withProductsComponent";
 import Card from "./Card";
 async function  ProductsMain(){
-    const res =  await fetch('https://fakestoreapi.com/products');
+    // console.log(process.env.NEXT_PUBLIC_API_URL + 'products')
+    const res =  await fetch(process.env.NEXT_PUBLIC_API_URL + 'products');
     const list = await res.json();
     const ProductosHOC = withProductsComponent(Card, list)
     const hdCanvas = () =>{

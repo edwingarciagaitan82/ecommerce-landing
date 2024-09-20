@@ -2,6 +2,7 @@ import styles from './Card.module.css'
 import { useDispatch } from 'react-redux'
 import { productAdd } from '../redux/cartSlice'
 import { useSelector } from "react-redux";
+import Link from 'next/link';
 function Card({ product }){
     const dispatch = useDispatch()
     // 
@@ -10,8 +11,8 @@ function Card({ product }){
       dispatch(productAdd( datos))
     }
 
-    const {email} = useSelector(state=> state.user )
-    console.log("user", email)
+    // const {email} = useSelector(state=> state.user )
+    // console.log("user", email)
     // dispatch( addProducto  )
     return(<>
     <div className="col-4 pt-4">
@@ -24,14 +25,15 @@ function Card({ product }){
         </div>
         <div className="card-body">
           <div className="clearfix mb-3">
-            <span className="float-start badge rounded-pill bg-success">1.245$</span>
+            <span className="float-start badge rounded-pill bg-success">$ { product.precio }</span>
             <span className="float-end"><a href="#" className="small text-muted text-uppercase aff-link">reviews</a></span>
           </div>
           <h5 className="card-title">
-            <a target="_blank" href="#">{ product.title  }</a>
+            <a target="_blank" href="#">{ product.nombre  }</a>
           </h5>
           <div className="d-grid gap-2 my-4">
             <a href="#" onClick = { addCart  } className="btn btn-warning bold-btn">add to cart</a>
+            <Link href={{ pathname: 'pages/product', query: { id: product.id } }} className="btn btn-info bold-btn">Ver</Link>
           </div>
           <div className="clearfix mb-1">
             <span className="float-start"><a href="#"><i className="fas fa-question-circle"></i></a></span>
@@ -44,5 +46,4 @@ function Card({ product }){
     </div>
     </>)
 }
-
 export default Card

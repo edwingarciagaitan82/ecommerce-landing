@@ -1,26 +1,24 @@
 "use client";
 import { useRouter } from "next//navigation";
-import { useDispatch } from "react-redux";
 export default function Home(){
     const Router = useRouter()
     const onSubmit = (data) => { data.preventDefault(); console.log("data",data)
         console.log("email", data.target[0].value, "pass", data.target[1].value)
         const email = data.target[0].value
         const pass = data.target[1].value
-        fetch(process.env.NEXT_PUBLIC_API_URL + 'usuarios/login', {
+        fetch('https://dummyjson.com/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              correo: email,
-              contrasena: pass,
-              expiresInMins: 30, // optional, defaults to 60
+                username: email,
+                password: pass,
+                expiresInMins: 30, // optional, defaults to 60
+                })
             })
-          })
-          .then(res => res.json())
-          .then(resData  =>{ console.log(resData)
-                if(resData.token){
+            .then(res => res.json())
+            .then(resData  =>{ console.log(resData)
+                if(resData.id){
                     console.log("nos redirijimos")
-                    //registro en userSlice
                     Router.push("/")
                 } else{
                     console.log(resData.message)
@@ -39,7 +37,7 @@ export default function Home(){
 
                         <div className="mb-md-5 mt-md-4 pb-5">
 
-                        <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
+                        <h2 className="fw-bold mb-2 text-uppercase">Register</h2>
                         <p className="text-white-50 mb-5">Please enter your login and password!</p>
                         <form onSubmit={ onSubmit } >
                         <div data-mdb-input-init className="form-outline form-white mb-4">
