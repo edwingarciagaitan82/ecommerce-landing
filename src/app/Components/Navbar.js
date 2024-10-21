@@ -60,7 +60,7 @@ function Navbar(){
         <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">                
                     { catList.map( (item, i) =>(
-                        <li className="nav-item">
+                        <li key={i} className="nav-item">
                         <a className="nav-link" href="#">{ item.nombre }</a>
                         </li>
                     )) }
@@ -70,7 +70,7 @@ function Navbar(){
             </li> */}
             <li className="nav-item">
                 {/* <a className="nav-link" href="#">Pricing</a> */}
-                <Link href="/pages/contact" className="nav-link">Contacto</Link>
+                <Link href="/contact" className="nav-link">Contacto</Link>
             </li>
             <li className="nav-item">
                 <a className="nav-link" href="http://localhost:5173/">admin</a>

@@ -7,4 +7,7 @@ export const withProductsComponent = ( Component, dataList )=>{
             </>
         )
     }
+
+    ProductsComponentWithData.displayName = `withProductsComponent(${Component.displayName || Component.name || 'Component'})`;
+    return ProductsComponentWithData;
 }

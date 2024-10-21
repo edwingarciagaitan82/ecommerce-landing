@@ -32,7 +32,7 @@ function Card({ product }){
             <a target="_blank" href="#">{ product.nombre  }</a>
           </h5>
           <div className="d-grid gap-2 my-4">
-            <a href="#" onClick = { addCart  } className="btn btn-warning bold-btn">add to cart</a>
+            <a href="#" onClick = { addCart } className="btn btn-warning bold-btn">add to cart</a>
             <Link href={{ pathname: 'pages/product', query: { id: product.id } }} className="btn btn-info bold-btn">Ver</Link>
           </div>
           <div className="clearfix mb-1">
